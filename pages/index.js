@@ -1,9 +1,8 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import style from '../styles/Home.module.css'
 import { useSession } from "next-auth/react";
+import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import style from '../styles/Home.module.css';
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -12,7 +11,10 @@ export default function Home() {
 
   useEffect(() => {
     if(!session){
-      router.push('/login')
+      router.push("/login")
+    }
+    else{
+    console.log("session", session)
     }
   }, [session])
   
