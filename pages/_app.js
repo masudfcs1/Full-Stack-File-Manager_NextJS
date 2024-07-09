@@ -8,8 +8,15 @@ export default function App({
 }) {
   return (
     <SessionProvider session={session}>
-      <Sidebar/>
-      <Component {...pageProps} />
+      <div className=" flex bg-teal-100">
+        <Sidebar />
+        <div className=" grid grid-cols-1 md:grid-cols-3 w-full">
+          <div className=" col-span-2">
+          <Component {...pageProps} />
+          </div>
+          <div className=" bg-white p-5">Storage</div>
+        </div>
+      </div>
     </SessionProvider>
   )
 }
