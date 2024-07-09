@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import style from '../styles/Home.module.css';
 import Searchbar from "@/components/searchbar";
+import FolderList from "@/components/folder/folderList";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
   return (
     <div className=" p-5">
       <Searchbar/>
+      <FolderList/>
     </div>
   );
 }

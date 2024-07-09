@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 const Sidebar = () => {
 
-    const [activeIndex, setActiveIndex] = useState(1)
+    const [activeIndex, setActiveIndex] = useState(0)
 
     return (
         <div className=' w-[200px] p-5 items-center gap-2 bg-white h-screen sticky top-0 z-10 shadow-blue-200 shadow-md '>

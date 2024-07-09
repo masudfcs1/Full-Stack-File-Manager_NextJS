@@ -9,6 +9,7 @@ const Searchbar = () => {
             <input type="text"
             placeholder='Search ....'
             className=' bg-transparent outline-none text-black w-full text-[14px]'
+            onKeyDown={(e)=>e.key === 'Enter' && console.log(e.target.value) }
             />
 
         </div>
