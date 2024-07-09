@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div className={style.container}>
-      
+      dashboard
     </div>
   );
 }
