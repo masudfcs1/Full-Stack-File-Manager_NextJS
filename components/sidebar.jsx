@@ -1,8 +1,12 @@
 import menu from '@/menu/menu'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const Sidebar = () => {
+
+    const [activeIndex, setActiveIndex] = useState(1)
+
     return (
         <div className=' w-[200px] p-5 items-center gap-2 bg-white h-screen sticky top-0 z-10 shadow-blue-200 shadow-md '>
 
@@ -29,10 +33,22 @@ const Sidebar = () => {
                 </svg>
             </button>
 
-            <div>
-                {menu.list.map((item)=>(
-                    <div>{item.name} </div>
-                    // <div>{item.name} </div>
+            <div className=' mt-5'>
+                {menu.list.map((item,index) => (
+                    <h2 
+                    onClick={()=>setActiveIndex(index)}
+                    className={`w-[150px] flex gap-1 items-center p-2 rounded-sm hover:cursor-pointer transition-all hover:text-white hover:bg-blue-400 hover:shadow-md hover:shadow-slate-500
+                      ${activeIndex === index ? 'bg-blue-500 text-white hover:cursor-pointer shadow-md shadow-slate-500' : null } `}
+                     
+                     >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round"
+                                d={item.logo}
+                            />
+                        </svg>
+                        {item?.name}
+                    </h2>
+
                 ))}
             </div>
 
