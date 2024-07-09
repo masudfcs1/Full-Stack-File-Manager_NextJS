@@ -9,7 +9,7 @@ const FolderItem = ({folder}) => {
         width={40}
         height={40}
         />
-        <h2 className=' line-clamp-2'>{folder.name} </h2>
+        <h2 className=' line-clamp-2 text-center text-[13px] justify-center'>{folder.name} </h2>
     </div>
   )
 }
