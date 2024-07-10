@@ -1,11 +1,13 @@
-import Image from 'next/image'
-import React, { useState } from 'react'
+import Image from 'next/image';
+import { useState } from 'react';
 
 const SidebarModal = () => {
     const [inputField, setinputField] = useState()
+    
 
-    const onCreate=()=>{
+    const onCreate= async()=>{
         console.log(inputField);
+        
     }
 
     return (
