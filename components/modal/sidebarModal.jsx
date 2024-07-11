@@ -27,6 +27,8 @@ const SidebarModal = () => {
                      className=' w-full outline-none p-2 bg-white border-[1px] rounded-sm'
                      onChange={(e)=>setinputField(e.target.value)}
                      />
+
+                     
                      <button onClick={()=>onCreate()} type='submit' className=' p-2 bg-blue-500 text-white mt-3 w-full rounded-sm hover:bg-blue-600 '>Create</button>
                 </div>
             </form>
