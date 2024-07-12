@@ -1,13 +1,17 @@
+import { app } from '@/config/firebase';
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import Image from 'next/image';
 import { useState } from 'react';
 
 const SidebarModal = () => {
     const [inputField, setinputField] = useState()
-
+    const db = getFirestore(app);
 
     const onCreate = async () => {
         console.log(inputField);
-
+        await setDoc(doc(db,"Folders","RandomId"),{
+            name: inputField
+        })
     }
 
     return (
