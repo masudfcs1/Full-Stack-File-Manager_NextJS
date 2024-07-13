@@ -1,16 +1,20 @@
 import { app } from '@/config/firebase';
 import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useState } from 'react';
 
 const SidebarModal = () => {
     const [inputField, setinputField] = useState()
+    const docId = Date.now().toString();
+    const { data: session } = useSession()
     const db = getFirestore(app);
-
     const onCreate = async () => {
         console.log(inputField);
-        await setDoc(doc(db,"Folders","RandomId"),{
-            name: inputField
+        await setDoc(doc(db, "Task-manager", docId), {
+            name: inputField,
+            id: docId,
+            createBy: session.user.email
         })
     }
 

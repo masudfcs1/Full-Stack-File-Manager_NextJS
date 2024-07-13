@@ -1,4 +1,5 @@
 import Sidebar from "@/components/sidebar";
+import Toast from "@/components/Toast";
 import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react"
 
@@ -17,6 +18,7 @@ export default function App({
           <div className=" bg-white p-5">Storage</div>
         </div>
       </div>
+        <Toast/>
     </SessionProvider>
   )
 }
