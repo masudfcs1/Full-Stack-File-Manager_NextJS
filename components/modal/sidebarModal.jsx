@@ -2,16 +2,20 @@ import { app } from '@/config/firebase';
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { ShowToastContext } from '../ShowToastContext';
 
 const SidebarModal = () => {
     const { data: session } = useSession()
-    const [showToastMsg, setShowToastMsg] = useState()
+    const {showToastMsg, setShowToastMsg} = useContext(ShowToastContext)
 
     const [inputField, setinputField] = useState()
     const docId = Date.now().toString();
 
     const db = getFirestore(app);
+    useEffect(() => {
+
+    }, [])
 
     const onCreate = async () => {
         console.log(inputField);
@@ -20,6 +24,7 @@ const SidebarModal = () => {
             id: docId,
             createBy: session.user.email
         })
+        setShowToastMsg("Create folder successfully.")
     }
 
     return (
