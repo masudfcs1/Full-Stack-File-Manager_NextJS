@@ -5,10 +5,14 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 const SidebarModal = () => {
+    const { data: session } = useSession()
+    const [showToastMsg, setShowToastMsg] = useState()
+
     const [inputField, setinputField] = useState()
     const docId = Date.now().toString();
-    const { data: session } = useSession()
+
     const db = getFirestore(app);
+
     const onCreate = async () => {
         console.log(inputField);
         await setDoc(doc(db, "Task-manager", docId), {

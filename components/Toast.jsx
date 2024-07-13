@@ -1,11 +1,10 @@
 import React from 'react'
 
-const Toast = () => {
+const Toast = ({message}) => {
     return (
         <div className="toast toast-end">
-            
             <div className="alert alert-success">
-                <span>Message sent successfully.</span>
+                <span>{message} </span>
             </div>
         </div>
     )
