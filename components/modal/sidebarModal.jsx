@@ -39,6 +39,7 @@ const SidebarModal = () => {
                         src='/folder.png'
                         width={50}
                         height={50}
+                        alt='img'
                     />
                     <input
                         type="text"
