@@ -1,35 +1,22 @@
 import { app } from '@/config/firebase';
-import { collection, doc, getDocs, getFirestore, query, setDoc, where } from "firebase/firestore";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { useContext, useEffect, useState } from 'react';
-import { ShowToastContext } from '../ShowToastContext';
 import { useRouter } from 'next/router';
+import { useContext, useState } from 'react';
+import { ShowToastContext } from '../ShowToastContext';
 
 const SidebarModal = () => {
     const { data: session } = useSession()
-    const {showToastMsg, setShowToastMsg} = useContext(ShowToastContext)
     const router=useRouter();
-    const [inputField, setinputField] = useState()
     const docId = Date.now().toString();
 
+    const {showToastMsg, setShowToastMsg} = useContext(ShowToastContext)
+    const [inputField, setinputField] = useState()
+    const [folderList, setFolderList] = useState()
+
     const db = getFirestore(app);
-    useEffect(()=>{
-        console.log("User Session",)
-        if(!session)
-        {
-          router.push("/login")
-        }
-        else{
-        //   setFolderList([]); 
-          getFolderList();
-        //   getFileList();
-    
-          console.log("User Session",session.user)
-        }
-        // setParentFolderId(0);
-    
-      },[session])
+ 
 
     const onCreate = async () => {
         console.log(inputField);
@@ -41,19 +28,7 @@ const SidebarModal = () => {
         setShowToastMsg("Create folder successfully.")
     }
 
-    const getFolderList=async()=>{
-        // setFolderList([]);
-        const q=query(collection(db,"Folders"),
-        // where("parentFolderId",'==',0),
-        where("createBy",'==',session.user.email));
-        
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-         console.log(doc.id, " => ", doc.data());
-        // setFolderList(folderList=>([...folderList,doc.data()]))
-    }); 
-    }
+ 
     return (
         <div>
             <form method="dialog" className=' modal-box p-9 bg-white items-center'>
