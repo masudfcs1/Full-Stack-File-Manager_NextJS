@@ -7,11 +7,12 @@ const FileItem = ({ file }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 justify-between cursor-pointer hover:bg-gray-100 p-3 rounded-md">
             <div className="flex gap-2 items-center" >
                 <Image
-                    //   src={image}
+                      src={file?.image}
                     alt="file-icon"
                     width={26}
                     height={20}
                     on
+                
                 />
                 <h2 className="text-[15px] truncate"
                     onClick={() => window.open(file.imageUrl)}
