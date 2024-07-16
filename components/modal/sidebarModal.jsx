@@ -19,7 +19,7 @@ const SidebarModal = () => {
 
     const onCreate = async () => {
         console.log(inputField);
-        await setDoc(doc(db, "Task-manager", docId), {
+        await setDoc(doc(db, "Folder", docId), {
             name: inputField,
             id: docId,
             createBy: session.user.email
