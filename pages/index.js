@@ -6,12 +6,16 @@ import style from '../styles/Home.module.css';
 import Searchbar from "@/components/searchbar";
 import FolderList from "@/components/folder/folderList";
 import FileList from "@/components/file/fileList";
+import { getFirestore } from "firebase/firestore";
+import { app } from "@/config/firebase";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const {data:session} =useSession()
   const router = useRouter();
 
+  const db=getFirestore(app)
+  
   useEffect(() => {
     if(!session){
       router.push("/login")
